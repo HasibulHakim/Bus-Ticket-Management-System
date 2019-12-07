@@ -20,6 +20,8 @@ Bus Info Detail View
 			      <th scope="col">Time</th>
 			      <th scope="col">Bus Name</th>
 			      <th scope="col">Bus Type</th>
+			      <th scope="col">Price</th>
+			      <th scope="col">Total Seat</th>
 			      <th scope="col">Action</th>
 			    </tr>
 			  </thead>
@@ -35,6 +37,8 @@ Bus Info Detail View
 			      <th scope="row">{{ $buses->relationbetweenTime->time }}</th>
 			      <th scope="row">{{ $buses->relationbetweenBus->bus_name }}</th>
 			      <th scope="row">{{ $buses->relationbetweenBusType->bus_type }}</th>
+			      <th scope="row">{{ $buses->relationbetweenPrice->price }}</th>
+			      <th scope="row">{{ $buses->relationbetweenTotalSeat->total_seat }}</th>
 			     
 			      <th>
 			    	<a href="{{ url('/admin/businfo/view/edit') }}\{{ $buses->id }}" class="btn btn-primary">Edit</a>

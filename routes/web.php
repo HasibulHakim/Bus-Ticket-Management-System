@@ -79,13 +79,13 @@ Route::get('/admin/businfo/view/delete/{id}','BusController@delete_businfo')->na
 
 
 //Bus Name Edit
-Route::get('/admin/bus_info/index','BusController@bus_info_index')->name('index');
+Route::get('/admin/bus_name_info/index','BusController@bus_name_info_index')->name('index');
 // Bus name edit
-Route::get('/admin/bus_info/edit/{id}','BusController@edit_bus_info')->name('bus_info_edit');
+Route::get('/admin/bus_name_info/edit/{id}','BusController@edit_bus_name_info')->name('bus_name_info_edit');
 // Bus name update
-Route::post('/admin/bus_info/update','BusController@update_bus_info')->name('bus_info_update');
+Route::post('/admin/bus_name_info/update','BusController@update_bus_name_info')->name('bus_name_info_update');
 //Bus name delete
-Route::get('/admin/bus_info/delete/{id}','BusController@delete_bus')->name('bus_delete');
+Route::get('/admin/bus_name_info/delete/{id}','BusController@delete_bus')->name('bus_delete');
 // Date index edit
 Route::get('/admin/date_info/index','BusController@date_info_index')->name('index_date_info');
 //Date edit
@@ -130,6 +130,76 @@ Route::get('/admin/price_info/edit/{id}','BusController@edit_price_info')->name(
 Route::post('/admin/price_info/update','BusController@update_price_info')->name('price_info_update');
 //Price Delete
 Route::get('/admin/price_info/delete/{id}','BusController@delete_price_info')->name('price_info_delete');
+
+
+
+
+// BUs seat view
+Route::get('/user/bus_seat/view/{id}','BusSeatController@bus_seat_view')->name('view_bus_seat');
+
+
+
+
+
+
+// Bus List view customer
+Route::get('/user/bus_list/view','BusController@bus_list_view')->name('view_bus_list');
+
+//Bus List search
+Route::post('/search','BusController@bus_search')->name('search_bus');
+
+
+
+
+//ticket booking
+Route::post('/user/ticket_booking','BookingController@ticket_booking')->name('book_ticket');
+//ticket booking view
+Route::get('/user/ticket_booking/view','BookingController@ticket_booking_view')->name('view_ticket_booking');
+
+// book ticket
+Route::post('/user/book_ticket','BookingController@ticket_book')->name('ticket_book');
+
+
+
+
+
+
+
+// Register Stoppage
+Route::get('/admin/register_stoppage/index','BusController@register_stoppage_index')->name('register_stoppage_index');
+//Register stoppage insert
+Route::post('/admin/register_stoppage/insert','BusController@register_stoppage_insert')->name('register_stoppage_insert');
+//Register stoppage view
+Route::get('/admin/register_stoppage/view','BusController@register_stoppage_view')->name('register_stoppage_view');
+
+
+
+
+//Total Seat index
+Route::get('/admin/total_seat','BusController@total_seat')->name('total_seat');
+//Total Seat insert
+Route::post('/admin/total_seat/insert','BusController@total_seat_insert')->name('total_seat_insert');
+//Ttal Seat View
+Route::get('/admin/total_seat/view','BusController@total_seat_view')->name('total_seat_view');
+//total seat edit
+Route::get('/admin/total_seat/edit/{id}','BusController@edit_total_seat')->name('total_seat_edit');
+//totalseat update
+Route::post('/admin/total_seat/update','BusController@update_total_seat')->name('total_seat_update');
+//total seat delete
+Route::get('/admin/total_seat/delete/{id}','BusController@delete_total_seat')->name('total_seat_delete');
+
+
+
+
+
+
+
+
+
+
+// stripe
+Route::get('stripe', 'StripePaymentController@stripe');
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
 
 Route::get('/', function () {
     return view('home.index');

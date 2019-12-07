@@ -5,9 +5,11 @@
     <title>
         @yield('title')
     </title>
+
     <link rel="icon" href="{{ asset('frontend/images/all-img/favicon.png') }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+     @yield('css')
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-v4.1.3.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/animations.min.css') }}">
@@ -16,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/swiper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/reponsive.css') }}">
+   
 </head>
 
 <body>
@@ -265,6 +268,7 @@
         </div>
     </div> -->
     <!--JS bootstrap-->
+    @yield('js')
     <script src="{{ asset('frontend/js/jquery-v3.3.1.min.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap-v4.1.3.min.js') }}"></script>
     <script src="{{ asset('frontend/js/animations.min.js') }}"></script>
@@ -273,6 +277,7 @@
     <script src="{{ asset('frontend/js/counter.js') }}"></script>
     <script src="{{ asset('frontend/js/crbnMenu.js') }}"></script>
     <script src="{{ asset('frontend/js/custom-script.js') }}"></script>
+
 
 </body>
 

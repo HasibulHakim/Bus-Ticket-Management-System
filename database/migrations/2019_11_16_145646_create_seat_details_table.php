@@ -21,6 +21,8 @@ class CreateSeatDetailsTable extends Migration
             $table->integer('terminal_name_id');
             $table->integer('district_name_id');
             $table->integer('bus_type_id');
+            $table->integer('price_id');
+            $table->integer('total_seat_id');
             $table->timestamps();
         });
     }

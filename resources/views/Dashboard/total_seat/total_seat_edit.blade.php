@@ -1,6 +1,6 @@
 @extends('Dashboard.app')
 @section('title')
-Price Edit
+Total Seat Edit
 @endsection
 
 @section('content')
@@ -11,19 +11,19 @@ Price Edit
             <!-- Basic Validation -->
             <div class="card mb-3 shadow no-b r-0">
                 <div class="card-header white">
-                    <h6>Price Edit</h6>
+                    <h6>Total Seat Edit</h6>
                 </div>
                 <div class="card-body">
-					<form method="post" action="{{route('price_info_update')}}">
+					<form method="post" action="{{route('total_seat_update')}}">
 
 						@csrf
 					  <div class="form-group row">
-					    <label for="form" class="col-sm-2 col-form-label">Price</label>
+					    <label for="form" class="col-sm-2 col-form-label">Total Seat</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="price" id="price" 
-						value="{{ $single_price->price }}"   >
-						<input type="hidden" class="form-control" name="id" id="price" 
-						value="{{ $single_price->id }}"   >
+					      <input type="text" class="form-control" name="total_seat" id="total_seat" 
+						value="{{ $single_total_seat->total_seat }}"   >
+						<input type="hidden" class="form-control" name="id" id="total_seat" 
+						value="{{ $single_total_seat->id }}"   >
 
 					    </div>
 					  

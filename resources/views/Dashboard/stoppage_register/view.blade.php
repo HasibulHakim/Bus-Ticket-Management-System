@@ -1,11 +1,12 @@
 @extends('Dashboard.app')
 @section('title')
-Bus View
-@endsecction
+Register Stoppage view
+@endsection
 
 
 
 @section('content')
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
@@ -14,18 +15,22 @@ Bus View
 			    <tr>
 			      <th scope="col">ID</th>
 			      <th scope="col">Bus Name</th>
+			      <th scope="col">Stoppage</th>
 			      <th scope="col">Action</th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			  	@foreach($allbuses as $buses)
+			  	@foreach($all_register_bus as $register_bus)
 			    <tr>
 			    	
-			      <th scope="row">{{ $buses->id }}</th>
-			      <td>{{ $buses->bus_name }}</td>
+			      <th scope="row">{{ $register_bus->id }}</th>
+			      <td>{{ App\Bus::findOrFail($register_bus->bus_id)->bus_name }}</td>
+			      <td>{{ App\Terminal::findOrFail($register_bus->stoppage_id)->stoppage }}</td>
 			      <td>
-			      	<a href="{{ url('/admin/bus_info/edit') }}/{{ $buses->id }}" class="btn btn-primary">Edit</a>
-			      	<a href="{{ url('/admin/bus_info/delete') }}\{{ $buses->id }}" class="btn btn-danger">Delete</a>
+			      	<td>
+			      		<a href="#" class="btn btn-primary">Edit</a>
+			      		<a href="#" class="btn btn-danger">Delete</a>
+			      	</td>
 			      </td>
 			     
 			    </tr>
@@ -35,6 +40,8 @@ Bus View
 		</div>
 	</div>
 </div>
+
+
 
 
 @endsection

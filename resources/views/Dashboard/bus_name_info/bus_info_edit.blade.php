@@ -1,6 +1,6 @@
 @extends('Dashboard.app')
 @section('title')
-Bus Insert
+Bus Info Edit
 @endsection
 
 @section('content')
@@ -10,16 +10,17 @@ Bus Insert
             <!-- Basic Validation -->
             <div class="card mb-3 shadow no-b r-0">
                 <div class="card-header white">
-                    <h6>BASIC VALIDATION</h6>
+                    <h6>Edit Bus Info</h6>
                 </div>
                 <div class="card-body">
-					<form method="post" action="{{ route('date_insert') }}">
+					<form method="post" action="{{ route('bus_name_info_update') }}">
 
 						@csrf
 					  <div class="form-group row">
 					    <label for="bus_name" class="col-sm-2 col-form-label">Bus Name</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="bus_name" id="bus_name" placeholder="Bus Name">
+					      <input type="text" class="form-control" name="bus_name" id="bus_name" value="{{ $single_bus_name_info->bus_name }}">
+					      <input type="hidden" class="form-control" name="id" id="id" value="{{ $single_bus_name_info->id }}">
 					    </div>
 					  
 					  <div class="form-group row">

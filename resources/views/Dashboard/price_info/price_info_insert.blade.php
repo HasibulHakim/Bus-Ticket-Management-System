@@ -19,7 +19,7 @@ Price Insert
 					  <div class="form-group row">
 					    <label for="price" class="col-sm-2 col-form-label">Price</label>
 					    <div class="col-sm-10">
-					      <input type="integer" class="form-control" name="price" id="price">
+					      <input type="text" class="form-control" name="price" id="price">
 					    </div>
 					  
 					  <div class="form-group row">

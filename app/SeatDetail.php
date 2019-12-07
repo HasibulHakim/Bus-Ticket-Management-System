@@ -3,11 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class SeatDetail extends Model
 {
     protected $fillable = [
-    	'bus_name_id','date_id','time_id','terminal_name_id','district_name_id','bus_type_id',
+    	'bus_name_id','date_id','time_id','terminal_name_id','district_name_id','bus_type_id','price_id','total_seat_id',
     ];
 
     // Relation between SeatDetail and Bus
@@ -36,7 +35,13 @@ class SeatDetail extends Model
     function relationbetweenBusType(){
         return $this->hasOne('App\BusType','id','bus_type_id');
     }
-
-
+    //Relation between SeatDetail and Price
+    function relationbetweenPrice(){
+        return $this->hasOne('App\Price','id','price_id');
+    }
+    //Relation between Seatdetail and TotalSeat
+    function relationbetweenTotalSeat(){
+        return $this->hasOne('App\TotalSeat','id','total_seat_id');
+    }
 
 }

@@ -87,6 +87,30 @@ Bus Information Detail
 					      </select>
 					    </div>
 					</div>
+
+					<div class="form-group row">
+					    <label for="form" class="col-sm-2 col-form-label">Price</label>
+					    <div class="col-sm-10">
+					      <select name="price_id" id="" class="form-control" required>
+					      	<option >Select</option>
+					      	@foreach($all_prices as $prices)
+					      	<option value="{{ $prices->id }}" >{{ $prices->price }}</option>
+					      	@endforeach
+					      </select>
+					    </div>
+					</div>
+
+					<div class="form-group row">
+					    <label for="form" class="col-sm-2 col-form-label">TotalSeat</label>
+					    <div class="col-sm-10">
+					      <select name="total_seat_id" id="" class="form-control" required>
+					      	<option >Select</option>
+					      	@foreach($all_total_seats as $total_seats)
+					      	<option value="{{ $total_seats->id }}" >{{ $total_seats->total_seat }}</option>
+					      	@endforeach
+					      </select>
+					    </div>
+					</div>
 					  
 					  <div class="form-group row">
 					    <div class="col-sm-10">

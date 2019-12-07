@@ -1,30 +1,25 @@
 @extends('Dashboard.app')
 @section('title')
-Price Edit
+Bus Insert
 @endsection
 
 @section('content')
-
 <div class="container-fluid my-3">
     <div class="d-flex row">
         <div class="col-md-7">
             <!-- Basic Validation -->
             <div class="card mb-3 shadow no-b r-0">
                 <div class="card-header white">
-                    <h6>Price Edit</h6>
+                    <h6>BASIC VALIDATION</h6>
                 </div>
                 <div class="card-body">
-					<form method="post" action="{{route('price_info_update')}}">
+					<form method="post" action="{{ route('bus_insert') }}">
 
 						@csrf
 					  <div class="form-group row">
-					    <label for="form" class="col-sm-2 col-form-label">Price</label>
+					    <label for="bus_name" class="col-sm-2 col-form-label">Bus Name</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="price" id="price" 
-						value="{{ $single_price->price }}"   >
-						<input type="hidden" class="form-control" name="id" id="price" 
-						value="{{ $single_price->id }}"   >
-
+					      <input type="text" class="form-control" name="bus_name" id="bus_name" placeholder="Bus Name">
 					    </div>
 					  
 					  <div class="form-group row">
@@ -38,5 +33,7 @@ Price Edit
 		</div>
 	</div>
 </div>			
+
+
 
 @endsection
