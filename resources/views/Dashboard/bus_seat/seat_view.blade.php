@@ -35,6 +35,12 @@ Seat View
 						    </div>
 						</div>
 						<div class="form-group row">
+						    <label for="bus_name" class="col-sm-2 col-form-label">Chassis No</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" name="chassis_no" id="bus_name" value="{{ $all_ticket_booking->chassis_no }}">
+						    </div>
+						</div>
+						<div class="form-group row">
 						    <label for="form" class="col-sm-2 col-form-label">From</label>
 						    <div class="col-sm-10">
 						      <input type="text" class="form-control" name="from" id="from" value="{{ $all_ticket_booking->terminal_name }}">
@@ -49,7 +55,7 @@ Seat View
 						<div class="form-group row">
 						    <label for="terminal" class="col-sm-2 col-form-label">Terminal</label>
 						    <div class="col-sm-10">
-						      <input type="text" class="form-control" name="stoppage" id="stoppage" value="{{ $all_ticket_booking->stoppage }}">
+						      <input type="text" class="form-control" name="stoppage" id="stoppage" value="{{ App\Terminal::findOrFail($all_ticket_booking->stoppage)->stoppage }}">
 						    </div>
 						</div>
 						<div class="form-group row">
@@ -86,6 +92,13 @@ Seat View
 						    <label for="total_seat" class="col-sm-2 col-form-label">Total Seat</label>
 						    <div class="col-sm-10">
 						      <input type="text" class="form-control" name="total_seat" id="total_seat" value="{{ $all_ticket_booking->total_seat }}">
+						    </div>
+						</div>
+
+						<div class="form-group row">
+						    <label for="chassis_no" class="col-sm-2 col-form-label">Chassis No</label>
+						    <div class="col-sm-10">
+						      <input type="text" class="form-control" name="chassis_no" id="chassis_no" value="{{ $all_ticket_booking->chassis_no }}">
 						    </div>
 						</div>
 					  

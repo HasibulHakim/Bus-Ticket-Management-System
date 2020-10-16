@@ -14,7 +14,9 @@ use App\Terminal;
 use App\Price;
 use App\RegisterStoppage;
 use App\TotalSeat;
+use App\ChassisNo;
 use Carbon\Carbon;
+use App\TicketBooking;
 
 class BusController extends Controller
 {
@@ -170,7 +172,26 @@ function bus_type_view(){
  		$allprices=Price::all();
  		return view('Dashboard.price_info.price_info_view',compact('allprices'));
  	}
+ 	//Chassis No index
 
+	function chassis_no(){
+ 		
+ 		return view('Dashboard.chassis_no.chassis_no_index');
+ 	}
+ 	//chassis no insert
+	function chassis_no_insert(Request $request){
+ 		
+ 		ChassisNo::insert([
+ 			'chassis_no'=>$request->chassis_no,
+ 		]);
+ 		return back();
+ 		
+ 	}
+ 	//chassis no view
+ 	function chassis_no_view(){
+ 		$all_chassis_nos=ChassisNo::all();
+ 		return view('Dashboard.chassis_no.chassis_no_view',compact('all_chassis_nos'));
+ 	}
 
  	function bus_info(){
  		$all_forms = Form::all();
@@ -181,10 +202,11 @@ function bus_type_view(){
 		$all_bus_types = BusType::all();
 		$all_prices=Price::all();
 		$all_total_seats=TotalSeat::all();
+		$all_chassis_nos=ChassisNo::all();
 		
 
  		
- 		return view('Dashboard.bus_info_detail.bus_info',compact('all_forms','all_tos','all_dates','all_times','all_buses','all_bus_types','all_prices','all_total_seats'));
+ 		return view('Dashboard.bus_info_detail.bus_info',compact('all_forms','all_tos','all_dates','all_times','all_buses','all_bus_types','all_prices','all_total_seats','all_chassis_nos'));
 	}
 	function bus_info_insert(Request $request){
 		// $request->validate([
@@ -196,6 +218,7 @@ function bus_type_view(){
 		// 	'bus_type_id'=>'required',
 		// 	'price_id'=>'required',
 		//  'total_seat_id'=>'required',
+		//  'chassis_no_id'=>'required',
 		// ]);
 		 		
  		SeatDetail::insert([
@@ -207,6 +230,7 @@ function bus_type_view(){
 			'bus_type_id'=>$request->bus_type_id,
 			'price_id'=>$request->price_id,
 			'total_seat_id'=>$request->total_seat_id,
+			'chassis_no_id'=>$request->chassis_no_id,
 			'created_at' => Carbon::now(),
 
  		]);
@@ -225,8 +249,9 @@ function bus_type_view(){
 		$all_bus_types = BusType::all();
 		$all_prices = Price::all();
 		$all_total_seats = TotalSeat::all();
+		$all_chassis_nos = ChassisNo::all();
  		$single_businfo = SeatDetail::find($id);
- 		return view('Dashboard.bus_info_detail.bus_info_detail_edit',compact('single_businfo','all_forms','all_tos','all_dates','all_times','all_buses','all_bus_types','all_prices','all_total_seats'));
+ 		return view('Dashboard.bus_info_detail.bus_info_detail_edit',compact('single_businfo','all_forms','all_tos','all_dates','all_times','all_buses','all_bus_types','all_prices','all_total_seats','all_chassis_nos'));
  	}
 
  	// Update Bus info
@@ -240,8 +265,9 @@ function bus_type_view(){
 			'bus_type_id'=>$request->bus_type_id,	
 			'price_id'=>$request->price_id,
 			'total_seat_id'=>$request->total_seat_id,
+			'chassis_no_id'=>$request->chassis_no_id,
  		]);
- 		return back();
+ 		return redirect(route('bus_info_view'));
  		// return redirect(url('/admin/businfo/view'));
  	}
  	//Delete Bus Info
@@ -268,7 +294,7 @@ function bus_type_view(){
  	// Edit Bus Info
  	function edit_bus_name_info($id){
  		$single_bus_name_info = Bus::find($id);
- 		return view('Dashboard.bus_name_info.bus_info_edit',compact('single_bus_info'));
+ 		return view('Dashboard.bus_name_info.bus_info_edit',compact('single_bus_name_info'));
  	}
 
  	// Bus info Update
@@ -501,6 +527,36 @@ function bus_type_view(){
  	//Total Seat Delete
  	function delete_total_seat($id){
  		TotalSeat::find($id)->delete();
+ 		return back();
+ 	}
+
+
+ 	//Chassis No edit
+ 	function edit_chassis_no($id){
+ 		$single_chassis_no = ChassisNo::find($id);
+ 		return view('Dashboard.chassis_no.edit_chassis_no',compact('single_chassis_no'));
+ 	}
+ 	//Chassis No update
+ 	function update_chassis_no(Request $request){
+ 		ChassisNo::find($request->id)->update([
+ 			'chassis_no' =>$request->chassis_no,
+ 		]);
+ 		return redirect(route('chassis_no_view'));
+ 	}
+ 	//chassis no delete
+ 	function delete_chassis_no($id){
+ 		ChassisNo::find($id)->delete();
+ 		return back();
+ 	}
+
+ 	//user booked info
+ 	function booked_info(){
+ 		$booked_info = TicketBooking::all();
+ 		return view('Dashboard.seat_info.user_booked_info',compact('booked_info'));
+ 	}
+ 	// delete booking
+ 	function delete_booked_info($id){
+ 		TicketBooking::findOrFail($id)->delete();
  		return back();
  	}
 }

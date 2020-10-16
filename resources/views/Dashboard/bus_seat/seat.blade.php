@@ -50,7 +50,15 @@
     </div>
 
         
-
+        <!-- @php
+            print_r($actual_seat);
+            if(in_array("a3", $actual_seat)){
+                    echo "ase";
+                }
+            else{
+                echo "nai";
+            }
+        @endphp -->
         <!-- =========== Main Ticket Booking Area Start ===================== -->
     <div id="ticket-booking">
         <div class="container">
@@ -70,7 +78,7 @@
                     <div class="margin-bottom-5"></div>
                     <strong>Total Seat: 41</strong>
                     <div class="margin-bottom-5"></div>
-                    <strong>Ticket Price : 50.00 USD</strong>
+                    <strong>Ticket Price : {{ $price }} Taka</strong>
                 </div>
             </div>
 
@@ -116,8 +124,9 @@
 
                     <div class="all-seats">
                         <div class='row'>
+                                @if(in_array("A1", $actual_seat))
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         A1
                                         <span class='seat-handle-left'></span>
@@ -126,8 +135,23 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        A1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+
+                                @if(in_array("A2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         A2
                                         <span class='seat-handle-left'></span>
@@ -136,9 +160,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        A2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                             @if(in_array("A3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         A3
                                         <span class='seat-handle-left'></span>
@@ -147,8 +186,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        A3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            @if(in_array("A4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         A4
                                         <span class='seat-handle-left'></span>
@@ -157,9 +210,24 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        A4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
-                        <div class='row'><div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                        <div class='row'>
+                            @if(in_array("B1", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         B1
                                         <span class='seat-handle-left'></span>
@@ -168,8 +236,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        B1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("B2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         B2
                                         <span class='seat-handle-left'></span>
@@ -178,9 +260,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        B2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                             @if(in_array("B3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         B3
                                         <span class='seat-handle-left'></span>
@@ -189,8 +285,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        B3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            @if(in_array("B4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         B4
                                         <span class='seat-handle-left'></span>
@@ -199,10 +309,24 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        B4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
                         <div class='row'>
+                             @if(in_array("C1", $actual_seat))
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         C1
                                         <span class='seat-handle-left'></span>
@@ -211,8 +335,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        C1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            @if(in_array("C2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         C2
                                         <span class='seat-handle-left'></span>
@@ -221,9 +359,24 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        C2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+
+                            <div class='col-2'>&nbsp;</div>
+                            @if(in_array("C3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         C3
                                         <span class='seat-handle-left'></span>
@@ -232,8 +385,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        C3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            @if(in_array("C4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         C4
                                         <span class='seat-handle-left'></span>
@@ -242,10 +409,23 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class='row'>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        C4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                                @endif
+                             <div class='row'>
+                         @if(in_array("D1", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         D1
                                         <span class='seat-handle-left'></span>
@@ -254,8 +434,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        D1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("D2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         D2
                                         <span class='seat-handle-left'></span>
@@ -264,9 +458,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        D2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                           @if(in_array("D3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         D3
                                         <span class='seat-handle-left'></span>
@@ -275,8 +483,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        D3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("D4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         D4
                                         <span class='seat-handle-left'></span>
@@ -285,10 +507,24 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        D4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
                         <div class='row'>
+                             @if(in_array("E1", $actual_seat))
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         E1
                                         <span class='seat-handle-left'></span>
@@ -297,8 +533,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        E1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("E2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         E2
                                         <span class='seat-handle-left'></span>
@@ -307,9 +557,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        E2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                             @if(in_array("E3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         E3
                                         <span class='seat-handle-left'></span>
@@ -318,8 +582,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        E3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("E4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         E4
                                         <span class='seat-handle-left'></span>
@@ -328,9 +606,24 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        E4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
-                        <div class='row'><div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                        <div class='row'>
+                             @if(in_array("F1", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         F1
                                         <span class='seat-handle-left'></span>
@@ -339,8 +632,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        F1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("F2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         F2
                                         <span class='seat-handle-left'></span>
@@ -349,9 +656,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        F2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                             @if(in_array("F3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         F3
                                         <span class='seat-handle-left'></span>
@@ -360,8 +681,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        F3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            @if(in_array("F4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         F4
                                         <span class='seat-handle-left'></span>
@@ -370,10 +705,24 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        F4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
                         <div class='row'>
+                             @if(in_array("G1", $actual_seat))
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         G1
                                         <span class='seat-handle-left'></span>
@@ -382,8 +731,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        G1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("G2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         G2
                                         <span class='seat-handle-left'></span>
@@ -392,9 +755,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        G2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                             @if(in_array("G3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         G3
                                         <span class='seat-handle-left'></span>
@@ -403,8 +780,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        G3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("G4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         G4
                                         <span class='seat-handle-left'></span>
@@ -413,10 +804,24 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        G4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
                         <div class='row'>
+                             @if(in_array("H1", $actual_seat))
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         H1
                                         <span class='seat-handle-left'></span>
@@ -425,8 +830,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        H1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("H2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         H2
                                         <span class='seat-handle-left'></span>
@@ -435,9 +854,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        H2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                             @if(in_array("H3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         H3
                                         <span class='seat-handle-left'></span>
@@ -446,8 +879,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        H3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("H4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         H4
                                         <span class='seat-handle-left'></span>
@@ -456,10 +903,24 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        H4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
                         <div class='row'>
+                             @if(in_array("I1", $actual_seat))
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         I1
                                         <span class='seat-handle-left'></span>
@@ -468,8 +929,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        I1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            @if(in_array("I2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         I2
                                         <span class='seat-handle-left'></span>
@@ -478,9 +953,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        I2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                             @if(in_array("I3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         I3
                                         <span class='seat-handle-left'></span>
@@ -489,8 +978,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        I3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("I4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         I4
                                         <span class='seat-handle-left'></span>
@@ -499,10 +1002,24 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        I4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
                         <div class='row'>
+                             @if(in_array("J1", $actual_seat))
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         J1
                                         <span class='seat-handle-left'></span>
@@ -511,8 +1028,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        J1
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("J2", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         J2
                                         <span class='seat-handle-left'></span>
@@ -521,9 +1052,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-2'>&nbsp;</div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        J2
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                            <div class='col-2'>&nbsp;</div>
+                             @if(in_array("J3", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         J3
                                         <span class='seat-handle-left'></span>
@@ -532,8 +1077,22 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
                             <div class='col-2'>
-                                <div class='seat occupied ChooseSeat ' data-item=''>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        J3
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
+                             @if(in_array("J4", $actual_seat))
+                            <div class='col-2'>
+                                <div class='seat ladies last-seat seat occupied'>
                                     <div class='seat-body'>
                                         J4
                                         <span class='seat-handle-left'></span>
@@ -542,6 +1101,19 @@
                                     </div>
                                 </div>
                             </div>
+                                @else
+                            <div class='col-2'>
+                                 <div class='seat occupied ChooseSeat ' data-item=''>
+                                    <div class='seat-body'>
+                                        J4
+                                        <span class='seat-handle-left'></span>
+                                        <span class='seat-handle-right'></span>
+                                        <span class='seat-bottom'></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                                @endif
                         </div>
                         <div class='row'>
                             <div class='col-2'>
@@ -608,6 +1180,7 @@
                         <input type="hidden" name="date"
                                value="{{ $date }}">
                         <input type="hidden" name="time" value="{{ $time }}">
+                        <input type="hidden" name="chassis_no" value="{{ $chassis_no }}">
                         <input type="hidden" name="terminal_name" value="{{ $terminal_name}}">
                         <input type="hidden" name="district_name" value="{{ $district_name}}">
                         <input type="hidden" name="price" value="{{ $price}}">

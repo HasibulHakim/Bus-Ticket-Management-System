@@ -1,4 +1,4 @@
-@extends('home.app')
+@extends('Dashboard.seat_info.app')
 @section('title')
 Bus Ticket Management System
 @endsection
@@ -17,58 +17,51 @@ Bus Ticket Management System
                     <div class="breadcrumbinfo">
                         <article>
                             <span class="b-title">Search your Bus Result</span>
-            <form role="search" action="/search" method="post">
-                @csrf
-        <div class="form-row">
-            <div class="col-12 col-md-3 col">
-               <select name="from" class="form-control">
+            				<form role="search" action="/search" method="post">
+                				@csrf
+        						<div class="form-row">
+						            <div class="col-12 col-md-3 col">
+						               <select name="from" class="form-control">
 
-        				@foreach($all_forms as $forms)
-					      	<option value="{{$forms->id}}" >{{$forms->terminal_name}}</option>
-					      	@endforeach
-                       
+				        				@foreach($all_forms as $forms)
+									      	<option value="{{$forms->id}}" >{{$forms->terminal_name}}</option>
+									      	@endforeach
+						               </select>
+						            </div>
+						            <div class="col-12 col-md-3 col">
+						               
+						               <select name="to" class="form-control">
+											@foreach($all_tos as $tos)
+										      	<option value="{{$tos->id}}" >{{$tos->district_name}}</option>
+										      	@endforeach
+						               </select>
 
-               </select>
-            </div>
-            <div class="col-12 col-md-3 col">
-               
-               <select name="to" class="form-control">
-						@foreach($all_tos as $tos)
-					      	<option value="{{$tos->id}}" >{{$tos->district_name}}</option>
-					      	@endforeach
+						            </div>
 
-               </select>
+						            <div class="col-12 col-md-3 col">
+						               
+						               <select name="date" class="form-control">
+											@foreach($all_dates as $dates)
+											      	<option value="{{$dates->id}}" >{{$dates->date}}</option>
+											      	@endforeach
+						               </select>
 
-            </div>
-
-                     <div class="col-12 col-md-3 col">
-               
-               <select name="date" class="form-control">
-					@foreach($all_dates as $dates)
-					      	<option value="{{$dates->id}}" >{{$dates->date}}</option>
-					      	@endforeach
-                      
-               </select>
-
-            </div>
-
-          
-
-        </div>
-
-            <div class="col-12 col-md-3 col">
-                <button type="submit" class="form-control h-serch">SEARCH</button>
-            </div>
-        </div>
-    </form>
+						            </div>
+						            <div class="col-md-3 ">
+						                <button type="submit" class="form-control h-serch">SEARCH</button>
+						            </div>
+						        </div>
+    						</form>
                         </article>
-                    </div>
+        			</div>
                 </div>
             </div>
         </div>
-    </section>
+</section>
     <!-- =========== banner end =========== -->
-
+<br>
+<br>
+<br>
 <!-- ----------------------------------------------------------- -->
 
 <div class="container">
@@ -86,6 +79,7 @@ Bus Ticket Management System
 							<td>Bus Name</td>
 							<td>Bus Type</td>
 							<td>Price</td>
+							<td>Chassis No</td>
 							<td>Action</td>
 						</tr>
 					</thead>
@@ -101,6 +95,7 @@ Bus Ticket Management System
 			      <th scope="row">{{ $buses->relationbetweenBus->bus_name }}</th>
 			      <th scope="row">{{ $buses->relationbetweenBusType->bus_type }}</th>
 			      <th scope="row">{{ $buses->relationbetweenPrice->price }}</th>
+			      <th scope="row">{{ $buses->relationbetweenChassisNo->chassis_no }}</th>
 			     
 			      <th>
 			    	

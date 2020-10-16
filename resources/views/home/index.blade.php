@@ -75,7 +75,7 @@ Bus Ticket Management System
     <!--choose section-->
     
     <!--team section-->
-    <section class="row team-section space" id="team">
+    <!-- <section class="row team-section space" id="team">
         <div class="container">
             <div class="title-section center pb-60">
                 <h2><span>MEET OUR TEAM</span></h2>
@@ -83,8 +83,8 @@ Bus Ticket Management System
                     nisi.
                     Duis rhoncus
                     imperdiet tortor eu sodales </p>
-            </div>
-            <div class="swiper-container team-slider">
+            </div> -->
+            <!-- <div class="swiper-container team-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <figure class="figure team bg-color">
@@ -133,8 +133,8 @@ Bus Ticket Management System
                                 </div>
                             </figcaption>
                         </figure>
-                    </div>
-                    <div class="swiper-slide">
+                    </div> -->
+                    <!-- <div class="swiper-slide">
                         <figure class="figure team bg-color">
                             <div class="bg-pic">
                                 <div class="pic">
@@ -167,7 +167,7 @@ Bus Ticket Management System
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!--team section-->
 
     <!--clients section-->
@@ -291,30 +291,7 @@ Bus Ticket Management System
     <!--blog section-->
     
     <!--blog section-->
-    <!--subscribe section-->
-    <section class="subscribe-section bg-1 space">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 subscribe-title">
-                    <h4> SUBSCRIBE FOR LATEST NEWS </h4>
-                </div>
-                <div class="col-md-4 mini_subscribe-btn pt-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Name">
-                    </div>
-                </div>
-                <div class="col-md-4 mini_subscribe-btn pt-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email">
-                    </div>
-                </div>
-                <div class="col-md-4 mini_subscribe-btn pt-4">
-                    <a href="#" class="submit-btn">Submit</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--subscribe section-->
+    
 
 @endsection
     

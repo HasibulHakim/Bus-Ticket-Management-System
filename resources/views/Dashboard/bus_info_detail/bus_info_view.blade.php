@@ -22,6 +22,7 @@ Bus Info Detail View
 			      <th scope="col">Bus Type</th>
 			      <th scope="col">Price</th>
 			      <th scope="col">Total Seat</th>
+			      <th scope="col">Chassis No</th>
 			      <th scope="col">Action</th>
 			    </tr>
 			  </thead>
@@ -39,6 +40,7 @@ Bus Info Detail View
 			      <th scope="row">{{ $buses->relationbetweenBusType->bus_type }}</th>
 			      <th scope="row">{{ $buses->relationbetweenPrice->price }}</th>
 			      <th scope="row">{{ $buses->relationbetweenTotalSeat->total_seat }}</th>
+			      <th scope="row">{{ $buses->relationbetweenChassisNo->chassis_no }}</th>
 			     
 			      <th>
 			    	<a href="{{ url('/admin/businfo/view/edit') }}\{{ $buses->id }}" class="btn btn-primary">Edit</a>

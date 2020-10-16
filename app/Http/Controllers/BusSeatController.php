@@ -16,10 +16,22 @@ use App\Form;
 use App\To;
 use App\Price;
 use App\TotalSeat;
+use App\ChassisNo;
+use App\TicketBooking;
 
 class BusSeatController extends Controller
 {
     function bus_seat_view($id){
+        $all_seat = Null;
+        $chassis_id = SeatDetail::findOrFail($id)->chassis_no_id;
+        $chassis_no = ChassisNo::findOrFail($chassis_id)->chassis_no;
+        $all_booked_ticket = TicketBooking::where('chassis_no', $chassis_no)->get();
+        foreach ($all_booked_ticket as $key => $value) {
+            $all_seat.=$value->seat_no;
+        }
+        $actual_seat  = explode(",", $all_seat);
+        array_pop($actual_seat);
+
     	$stoppage = RegisterStoppage::where('bus_id',$id)->get();
 
     	$name = User::findOrFail(Auth::id())->name;
@@ -49,6 +61,6 @@ class BusSeatController extends Controller
     	$total_seat_id = SeatDetail::findOrFail($id)->total_seat_id;
     	$total_seat = TotalSeat::findOrFail($total_seat_id)->total_seat;
 
-    	return view('Dashboard.bus_seat.seat',compact('stoppage','name','phone','bus_name','bus_type','date','time','terminal_name','district_name','price','total_seat'));
+    	return view('Dashboard.bus_seat.seat',compact('stoppage','name','phone','bus_name','bus_type','date','time','terminal_name','district_name','price','total_seat','chassis_no','actual_seat'));
     }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laravel 5 - Stripe Payment Gateway Integration Example - ItSolutionStuff.com</title>
+	<title>Payment</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style type="text/css">
@@ -26,7 +26,7 @@
   
 <div class="container">
   
-    <h1>Laravel 5 - Stripe Payment Gateway Integration Example <br/> ItSolutionStuff.com</h1>
+    <h1>Payment</h1>
   
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -55,6 +55,15 @@
                         @csrf
                         <input type="hidden" name="check" value="{{ $check }}">
                         <input type="hidden" name="total_price" value="{{ $total_price }}">
+                        <input type="text" name="name" value="{{ $name }}">
+                        <input type="text" name="phone" value="{{ $phone }}">
+                        <input type="text" name="bus_name" value="{{ $bus_name }}">
+                        <input type="text" name="from" value="{{ $from }}">
+                        <input type="text" name="to" value="{{ $to }}">
+                        <input type="text" name="stoppage" value="{{ $terminal }}">
+                        <input type="text" name="date" value="{{ $date }}">
+                        <input type="text" name="time" value="{{ $time }}">
+                        <input type="text" name="seat_no" value="{{ $seat_no }}">
   
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
@@ -98,7 +107,7 @@
   
                         <div class="row">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ()</button>
                             </div>
                         </div>
                           

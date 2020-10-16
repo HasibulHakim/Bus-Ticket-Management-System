@@ -12,6 +12,9 @@ Route::get('/admin/users/delete/{id}','AdminController@delete')-> name('udelete_
 
 
 
+
+
+
 // Bus Insert form
 Route::get('/admin/bus_insert_form','BusController@bus')->name('buses');
 // Bus Insert
@@ -61,6 +64,21 @@ Route::get('/admin/price','BusController@price')->name('price');
 Route::post('/admin/price/insert','BusController@price_insert')->name('price_insert');
 //Price View
 Route::get('/admin/price/view','BusController@price_view')->name('price_view');
+
+
+
+//Chassis No index
+Route::get('/admin/chassis_no','BusController@chassis_no')->name('chassis_no');
+//chassis no insert
+Route::post('/admin/chassis_no/insert','BusController@chassis_no_insert')->name('chassis_no_insert');
+// cassis no view
+Route::get('/admin/chassis_no/view','BusController@chassis_no_view')->name('chassis_no_view');
+// chassis no edit
+Route::get('/admin/chassis_no/edit/{id}','BusController@edit_chassis_no')->name('chassis_no_edit');
+//Chassis No Update
+Route::post('/admin/chassis_no/update','BusController@update_chassis_no')->name('chassis_no_update');
+//chassis No Delete
+Route::get('/admin/chassis_no/delete/{id}','BusController@delete_chassis_no')->name('chassis_no_delete');
 
 
 //Bus_info_Detail
@@ -148,6 +166,10 @@ Route::get('/user/bus_list/view','BusController@bus_list_view')->name('view_bus_
 //Bus List search
 Route::post('/search','BusController@bus_search')->name('search_bus');
 
+//User Booked Info
+Route::get('/user/booked_info','BusController@booked_info')->name('booked_info');
+// Cancel ticket
+Route::get('/user/booked_info/delete/{id}','BusController@delete_booked_info')->name('delete_booked_info');
 
 
 
@@ -197,6 +219,11 @@ Route::get('/admin/total_seat/delete/{id}','BusController@delete_total_seat')->n
 
 
 
+
+
+
+
+
 // stripe
 Route::get('stripe', 'StripePaymentController@stripe');
 Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
@@ -208,3 +235,26 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// about
+
+Route::get('/about', 'FrontController@about')->name('about');
+Route::get('/contact', 'FrontController@contact')->name('contact');
+
+
+
+
+
+
+
+
+
+// Generate Report
+Route::get('/admin/report','AdminController@report_form')->name('report_form');
+// View report
+Route::post('/admin/report/view','AdminController@report_view')->name('report_view');
+
+//Agent
+Route::get('/admin/agent','AdminController@agent_form')->name('agent_form');
+//Agent insert
+Route::post('/admin/agent/create','AdminController@agent_create')->name('agent_create');
+

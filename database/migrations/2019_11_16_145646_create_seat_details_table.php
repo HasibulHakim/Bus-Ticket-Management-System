@@ -23,6 +23,7 @@ class CreateSeatDetailsTable extends Migration
             $table->integer('bus_type_id');
             $table->integer('price_id');
             $table->integer('total_seat_id');
+            $table->integer('chassis_no_id');
             $table->timestamps();
         });
     }

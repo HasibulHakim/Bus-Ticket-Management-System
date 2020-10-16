@@ -112,7 +112,19 @@ Bus Information Detail
 					      <select name="total_seat_id" id="" class="form-control" required>
 					      	<option value="{{$single_businfo->total_seat_id}}">{{ $single_businfo->relationbetweenTotalSeat->total_seat }}</option>
 					      	@foreach($all_total_seats as $total_seats)
-					      	<option value="{{ $prices->id }}" >{{ $total_seats->total_seat }}</option>
+					      	<option value="{{ $total_seats->id }}" >{{ $total_seats->total_seat }}</option>
+					      	@endforeach
+					      </select>
+					    </div>
+					</div>
+
+					<div class="form-group row">
+					    <label for="form" class="col-sm-2 col-form-label">Chassis No</label>
+					    <div class="col-sm-10">
+					      <select name="chassis_no_id" id="" class="form-control" required>
+					      	<option value="{{$single_businfo->chassis_no_id}}">{{ $single_businfo->relationbetweenChassisNo->chassis_no }}</option>
+					      	@foreach($all_chassis_nos as $chassis_nos)
+					      	<option value="{{ $chassis_nos->id }}" >{{ $chassis_nos->chassis_no }}</option>
 					      	@endforeach
 					      </select>
 					    </div>

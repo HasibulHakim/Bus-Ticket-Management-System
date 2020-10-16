@@ -101,12 +101,24 @@ Bus Information Detail
 					</div>
 
 					<div class="form-group row">
-					    <label for="form" class="col-sm-2 col-form-label">TotalSeat</label>
+					    <label for="form" class="col-sm-2 col-form-label">Total Seat</label>
 					    <div class="col-sm-10">
 					      <select name="total_seat_id" id="" class="form-control" required>
 					      	<option >Select</option>
 					      	@foreach($all_total_seats as $total_seats)
 					      	<option value="{{ $total_seats->id }}" >{{ $total_seats->total_seat }}</option>
+					      	@endforeach
+					      </select>
+					    </div>
+					</div>
+
+					<div class="form-group row">
+					    <label for="form" class="col-sm-2 col-form-label">Chassis No</label>
+					    <div class="col-sm-10">
+					      <select name="chassis_no_id" id="" class="form-control" required>
+					      	<option >Select</option>
+					      	@foreach($all_chassis_nos as $chassis_nos)
+					      	<option value="{{ $chassis_nos->id }}" >{{ $chassis_nos->chassis_no  }}</option>
 					      	@endforeach
 					      </select>
 					    </div>

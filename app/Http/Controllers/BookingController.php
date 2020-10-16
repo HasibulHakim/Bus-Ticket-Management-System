@@ -18,6 +18,7 @@ class BookingController extends Controller
     		'name' =>$request->name,
 			'phone' =>$request->phone,
 			'bus_name' =>$request->bus_name,
+            'chassis_no' =>$request->chassis_no,
 			'date' =>$request->date,
 			'time' =>$request->time,
 			'from' =>$request->from,
@@ -31,7 +32,16 @@ class BookingController extends Controller
     	]);
     	if($check){
     		$total_price =$request->total_price;
-    		return view('stripe',compact('check','total_price'));
+            $name = $request->name;
+            $phone = $request->phone;
+            $bus_name = $request->bus_name;
+            $from = $request->from;
+            $to = $request->to;
+            $terminal = $request->stoppage;
+            $date = $request->date;
+            $time = $request->time;
+            $seat_no = $request->seat_no;
+    		return view('stripe',compact('check','total_price','name','phone','bus_name','from','to','terminal','date','time','seat_no'));
     	}
     	else{
     		echo "Fail";

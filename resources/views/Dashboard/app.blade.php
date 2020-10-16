@@ -88,7 +88,7 @@
 <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
     <section class="sidebar">
         <div class="w-80px mt-3 mb-3 ml-3">
-            <img src="{{ asset('dashboard/assets/img/basic/logo.png') }}" alt="">
+            <h3>OBTMS</h3>
         </div>
         <div class="relative">
             <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false"
@@ -97,11 +97,11 @@
             </a>
             <div class="user-panel p-3 light mb-2">
                 <div>
-                    <div class="float-left image">
+                    <!-- <div class="float-left image">
                         <img class="user_avatar" src="{{ asset('dashboard/assets/img/dummy/u2.png') }}" alt="User Image">
-                    </div>
+                    </div> -->
                     <div class="float-left info">
-                        <h6 class="font-weight-light mt-2 mb-1">Hasibul Hakim</h6>
+                        <h6 class="font-weight-light mt-2 mb-1">{{App\User::findOrFail(Auth::id())->name}}</h6>
                         <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
                     </div>
                 </div>
@@ -111,22 +111,26 @@
                         <a href="index.html" class="list-group-item list-group-item-action ">
                             <i class="mr-2 icon-umbrella text-blue"></i>Profile
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action"><i
-                                class="mr-2 icon-cogs text-yellow"></i>Settings</a>
-                        <a href="#" class="list-group-item list-group-item-action"><i
-                                class="mr-2 icon-security text-purple"></i>Change Password</a>
+                        <a href="{{ route('logout') }}" class="list-group-item list-group-item-action" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
+                                class="mr-2 icon-cogs text-yellow"></i>Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
         <ul class="sidebar-menu">
             <li class="header"><strong>MAIN NAVIGATION</strong></li>
+            <li class="treeview"><a href="{{ route('dashboard_home') }}">
+                <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Dashboard</span></a>
+            </li>
             <li class="treeview"><a href="#">
-                <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Dashboard</span> <i
-                    class="icon icon-angle-left s-18 pull-right"></i>
-            </a>
+                <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>Single Info Input</span> <i class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="{{ url('/admin/bus_insert_form') }}"><i class="icon icon-folder5"></i>Bus View</a>
+                    </li>
+                    <li><a href="{{ url('/admin/bus_insert_form') }}"><i class="icon icon-folder5"></i>Add bus </a>
                     </li>
                     <li><a href="{{ url('/admin/date_insert_form') }}"><i class="icon icon-folder5"></i>Date View</a>
                     </li>
@@ -136,278 +140,57 @@
                     </li>
                     <li><a href="{{ url('/admin/to') }}"><i class="icon icon-folder5"></i>To View</a>
                     </li>
+                    <li><a href="{{ route('chassis_no') }}"><i class="icon icon-folder5"></i>Chassis No</a>
+                    </li>
                     <li><a href="{{ url('/admin/bus_type') }}"><i class="icon icon-folder5"></i>Coach Type</a>
                     </li>
                     <li><a href="{{ url('/admin/terminal') }}"><i class="icon icon-folder5"></i>Terminal View</a>
                     </li>
                     <li><a href="{{ url('/admin/price') }}"><i class="icon icon-folder5"></i>Price View</a></li>
+                    <li><a href="{{ url('/admin/total_seat') }}"><i class="icon icon-folder5"></i>Total Seat View</a></li>
+                    <li><a href="{{ url('/admin/register_stoppage/index') }}"><i class="icon icon-folder5"></i>Register Stoppage</a>
+                    </li>
                     <li><a href="{{ url('/admin/businfo') }}"><i class="icon icon-folder5"></i>Bus Information Detail</a></li>
                     
                 </ul>
             </li>
-            <li class="treeview"><a href="#">
-                <i class="icon icon icon-package blue-text s-18"></i>
-                <span>Products</span>
-                <span class="badge r-3 badge-primary pull-right">4</span>
-            </a>
-                <ul class="treeview-menu">
-                    <li><a href="panel-page-products.html"><i class="icon icon-circle-o"></i>All Products</a>
-                    </li>
-                    <li><a href="panel-page-products-create.html"><i class="icon icon-add"></i>Add
-                        New </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Users<i
+            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>View Info<i
                     class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="panel-page-users.html"><i class="icon icon-circle-o"></i>All Users</a>
+                    <li><a href="{{ url('/user/bus_list/view') }}"><i class="icon icon-folder5"></i>Bus List View</a>
                     </li>
-                    <li><a href="panel-page-users-create.html"><i class="icon icon-add"></i>Add User</a>
+                    <li><a href="{{ route('view_bus') }}"><i class="icon icon-folder5"></i>Bus Name View</a>
                     </li>
-                    <li><a href="panel-page-profile.html"><i class="icon icon-user"></i>User Profile </a>
+                    <li><a href="{{ route('date_view') }}"><i class="icon icon-folder5"></i>Date View</a>
                     </li>
-                    <li><a href="{{ url('/admin/bus_insert_form') }}"><i class="icon icon-user"></i>Add bus </a>
+                    <li><a href="{{ route('time_view') }}"><i class="icon icon-folder5"></i>Time View</a>
+                    </li>
+                    <li><a href="{{ route('form_view') }}"><i class="icon icon-folder5"></i>From View</a>
+                    </li>
+                    <li><a href="{{ route('to_view') }}"><i class="icon icon-folder5"></i>To View</a>
+                    </li>
+                    <li><a href="{{ route('bus_type_view') }}"><i class="icon icon-folder5"></i>Bus Type View</a>
+                    </li>
+                    <li><a href="{{ route('terminal_view') }}"><i class="icon icon-folder5"></i>Terminal View</a>
+                    </li>
+                    <li><a href="{{ route('price_view') }}"><i class="icon icon-folder5"></i>Price View</a>
+                    </li>
+                    <li><a href="{{ route('chassis_no_view') }}"><i class="icon icon-folder5"></i>Chassis No View</a>
+                    </li>
+                    <li><a href="{{ url('/admin/users') }}"><i class="icon icon-user"></i> Users Info </a>
                     </li>
                 </ul>
             </li>
-            <li class="treeview no-b"><a href="#">
-                <i class="icon icon-package light-green-text s-18"></i>
-                <span>Inbox</span>
-                <span class="badge r-3 badge-success pull-right">20</span>
-            </a>
+            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Bus Information View<i
+                    class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="panel-page-inbox.html"><i class="icon icon-circle-o"></i>All Messages</a>
-                    </li>
-                    <li><a href="panel7-inbox.html"><i class="icon icon-circle-o"></i>Panel7 - Inbox</a>
-                    </li>
-                    <li><a href="panel8-inbox.html"><i class="icon icon-circle-o"></i>Panel8 - Inbox</a>
-                    </li>
-                    <li><a href="panel-page-inbox-create.html"><i class="icon icon-add"></i>Compose</a>
+                    <li><a href="{{ route('bus_info_view') }}"><i class="icon icon-folder5"></i>Bus Information</a>
                     </li>
                 </ul>
             </li>
-            <li class="header light mt-3"><strong>UI COMPONENTS</strong></li>
-            <li class="treeview ">
-                <a href="#">
-                    <i class="icon icon-package text-lime s-18"></i> <span>Apps</span>
-                    <i class="icon icon-angle-left s-18 pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="panel-page-chat.html"><i class="icon icon-circle-o"></i>Chat</a>
-                    </li>
-                    <li><a href="panel7-tasks.html"><i class="icon icon-circle-o"></i>Tasks / Todo</a>
-                    </li>
-                    <li><a href="panel-page-calendar.html"><i class="icon icon-date_range"></i>Calender</a>
-                    </li>
-                    <li><a href="panel-page-calendar2.html"><i class="icon icon-date_range"></i>Calender 2</a>
-                    </li>
-                    <li><a href="panel-page-contacts.html"><i class="icon icon-circle-o"></i>Contacts</a>
-                    </li>
-                    <li><a href="panel1-projects.html"><i class="icon icon-circle-o"></i>Panel1 - Projects</a>
-                    </li>
-                    <li><a href="panel7-projects-list.html"><i class="icon icon-circle-o"></i>Panel7 - Projects List</a>
-                    </li>
-                    <li><a href="panel7-invoices.html"><i class="icon icon-circle-o"></i>Invoices</a>
-                    <li><a href="panel7-meetings.html"><i class="icon icon-circle-o"></i>Meetings</a>
-                    <li><a href="panel7-payments.html"><i class="icon icon-circle-o"></i>Payments</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="icon icon-documents3 text-blue s-18"></i> <span>Pages</span>
-                    <i class="icon icon-angle-left s-18 pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="#"><i class="icon icon-documents3"></i>Blank Pages<i
-                            class="icon icon-angle-left s-18 pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="panel-page-blank.html"><i class="icon icon-document"></i>Simple Blank</a>
-                            </li>
-                            <li><a href="panel-page-blank-tabs.html"><i class="icon icon-document"></i>Tabs Blank <i
-                                    class="icon icon-angle-left s-18 pull-right"></i></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="icon icon-fingerprint text-green"></i>Auth Pages<i
-                            class="icon icon-angle-left s-18 pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="login.html"><i class="icon icon-document"></i>Login Page 1</a>
-                            </li>
-                            <li><a href="login-2.html"><i class="icon icon-document"></i>Login Page 2</a>
-                            </li>
-                            <li><a href="login-3.html"><i class="icon icon-document"></i>Login Page 3</a>
-                            </li>
-                            <li><a href="login-4.html"><i class="icon icon-document"></i>Login Page 4</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="icon icon-bug text-red"></i>Error Pages<i
-                            class="icon icon-angle-left s-18 pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="panel-page-404.html"><i class="icon icon-document"></i>404 Page</a>
-                            </li>
-                            <li><a href="panel-page-500.html"><i class="icon icon-document"></i>500 Page<i
-                                    class="icon icon-angle-left s-18 pull-right"></i></a>
-                            </li>
-                            <li><a href="panel-page-error.html"><i class="icon icon-document"></i>420 Page<i
-                                    class="icon icon-angle-left s-18 pull-right"></i></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="icon icon-documents3"></i>Other Pages<i
-                            class="icon icon-angle-left s-18 pull-right"></i></a>
-                        <ul class="treeview-menu">
-                            <li><a href="panel-page-invoice.html"><i class="icon icon-document"></i>Invoice Page</a>
-                            </li>
-                            <li><a href="panel-page-no-posts.html"><i class="icon icon-document"></i>No Post Page</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="icon icon-goals-1 amber-text s-18"></i> <span>Elements</span>
-                    <i class="icon icon-angle-left s-18 pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="panel-element-widgets.html">
-                        <i class="icon icon-widgets amber-text s-14"></i> <span>Widgets</span>
-                    </a>
-                    </li>
-                    <li><a href="panel-element-counters.html">
-                        <i class="icon icon-filter_9_plus amber-text s-14"></i> <span>Counters</span>
-                    </a>
-                    <li><a href="panel-element-buttons.html">
-                        <i class="icon icon-touch_app amber-text s-14"></i> <span>Buttons</span>
-                    </a>
-                    </li>
-                    <li>
-                        <a href="panel-element-typography.html">
-                            <i class="icon icon-text-width amber-text s-14"></i> <span>Typography</span>
-                        </a>
-                    </li>
-                    <li><a href="panel-element-tabels.html">
-                        <i class="icon icon-table amber-text s-14"></i> <span>Tables</span>
-                    </a>
-                    </li>
-                    <li><a href="panel-element-alerts.html">
-                        <i class="icon icon-exclamation-circle amber-text s-14"></i> <span>Alerts</span>
-                    </a>
-                    </li>
-                    <li><a href="panel-element-slider.html"><i class="icon icon-view_carousel amber-text s-14"></i>
-                        <span>Slider</span></a></li>
-                    <li><a href="panel-element-tabs.html"><i class="icon icon-folders2 amber-text s-14"></i>
-                        <span>Tabs</span></a></li>
-                    <li><a href="panel-element-progress-bars.html"><i class="icon icon-folders2 amber-text s-14"></i>
-                        <span>Progress Bars</span></a></li>
-                    <li><a href="panel-element-badges.html"><i class="icon icon-flag7 amber-text s-14"></i>
-                        <span>Badges</span></a></li>
-                    <li><a href="panel-element-preloaders.html"><i class="icon icon-data_usage amber-text s-14"></i>
-                        <span>Preloaders</span></a></li>
-                </ul>
-            </li>
-            <li class="treeview ">
-                <a href="#">
-                    <i class="icon icon-wpforms light-green-text s-18 "></i> <span>Forms & Plugins</span>
-                    <i class="icon icon-angle-left s-18 pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="panel-element-forms.html"><i class="icon icon-wpforms light-green-text"></i>Bootstrap
-                        Inputs</a>
-                    </li>
-                    <li><a href="form-jquery-validations.html"><i class="icon icon-note-important light-green-text"></i>
-                        Form Validation (Jquery)</a>
-                    </li>
-                    <li><a href="form-bootstrap-validations.html"><i class="icon icon-note-important light-green-text"></i>
-                        Form Validation (Bootstrap)</a>
-                    </li>
-                    <li><a href="panel-element-editor.html"><i class="icon icon-pen2 light-green-text"></i>Editor</a>
-                    </li>
-                    <li><a href="panel-element-toast.html"><i
-                            class="icon icon-notifications_active light-green-text"></i>Toasts</a>
-                    </li>
-                    <li><a href="panel-element-stepper.html"><i class="icon icon-burst_mode light-green-text"></i>Stepper</a>
-                    </li>
-                    <li><a href="panel-element-date-time-picker.html"><i
-                            class="icon icon-date_range light-green-text"></i>Date Time Picker</a>
-                    </li>
-                    <li><a href="panel-element-color-picker.html"><i class="icon icon-adjust light-green-text"></i>Color
-                        Picker</a>
-                    </li>
-                    <li><a href="panel-element-range-slider.html"><i class="icon icon-space_bar light-green-text"></i>Range
-                        Slider</a>
-                    </li>
-                    <li><a href="panel-element-select2.html"><i
-                            class="icon  icon-one-finger-click light-green-text"></i>Select 2</a>
-                    </li>
-                    <li><a href="panel-element-tags.html"><i class="icon  icon-tags3 light-green-text"></i>Tags</a>
-                    </li>
-                    <li><a href="panel-element-data-tables.html"><i class="icon icon-table light-green-text"></i>Data
-                        Tables</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview"><a href="#">
-                <i class="icon icon-bar-chart2 pink-text s-18"></i>
-                <span>Charts</span>
-                <i class="icon icon-angle-left s-18 pull-right"></i>
-            </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="panel-element-charts-js.html"><i class="icon icon-area-chart pink-text s-14"></i><span>Charts.Js</span></a>
-                    </li>
-                    <li>
-                        <a href="panel-element-morris.html"><i class="icon icon-bubble_chart pink-text s-14"></i>Morris
-                            Charts</a>
-                    </li>
-                    <li>
-                        <a href="panel-element-echarts.html">
-                            <i class="icon icon-bar-chart-o pink-text s-14"></i>Echarts</a>
-                    </li>
-                    <li>
-                        <a href="panel-element-easy-pie-charts.html">
-                            <i class="icon icon-area-chart pink-text s-14"></i>Easy Pie Charts</a>
-                    </li>
-                    <li>
-                        <a href="panel-element-jqvmap.html">
-                            <i class="icon icon-map pink-text s-14"></i>Jqvmap</a>
-                    </li>
-                    <li>
-                        <a href="panel-element-sparklines.html">
-                            <i class="icon icon-line-chart2 pink-text s-14"></i>Sparklines</a>
-                    </li>
-                    <li>
-                        <a href="panel-element-float.html">
-                            <i class="icon icon-pie-chart pink-text s-14"></i>Float Charts</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview"><a href="#">
-                <i class="icon icon-dialpad blue-text  s-18"></i>
-                <span>Extra</span>
-                <i class="icon icon-angle-left s-18 pull-right"></i>
-            </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="panel-element-letters.html">
-                            <i class="icon icon-brightness_auto light-blue-text s-14"></i>
-                            <span>Avatar Placeholders</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="panel-element-icons.html">
-                            <i class="icon icon-camera2 light-blue-text s-14"></i> <span>Icons</span>
-                        </a>
-                    </li>
-                    <li><a href="panel-element-colors.html">
-                        <i class="icon icon-palette light-blue-text s-14"></i> <span>Colors</span>
-                    </a>
-                    </li>
-                </ul>
-            </li>
+            <li class="treeview"><a href="{{ route('agent_form') }}"><i class="icon icon-account_box light-green-text s-18"></i>Add User</li>
+            <li class="treeview"><a href="{{ route('report_form') }}"><i class="icon icon-account_box light-green-text s-18"></i>Report Generate</li>
+            
         </ul>
     </section>
 </aside>
@@ -459,55 +242,9 @@
                                 <p>Why not buy a new awesome theme?</p>
                             </a>
                         </li>
-                        <!-- end message -->
-                        <!-- start message -->
-                        <li>
-                            <a href="#">
-                                <div class="avatar float-left">
-                                    <img src="{{ asset('dashboard/assets/img/dummy/u1.png') }}" alt="">
-                                    <span class="avatar-badge online"></span>
-                                </div>
-                                <h4>
-                                    Support Team
-                                    <small><i class="icon icon-clock-o"></i> 5 mins</small>
-                                </h4>
-                                <p>Why not buy a new awesome theme?</p>
-                            </a>
-                        </li>
-                        <!-- end message -->
-                        <!-- start message -->
-                        <li>
-                            <a href="#">
-                                <div class="avatar float-left">
-                                    <img src="{{ asset('dashboard/assets/img/dummy/u2.png') }}" alt="">
-                                    <span class="avatar-badge idle"></span>
-                                </div>
-                                <h4>
-                                    Support Team
-                                    <small><i class="icon icon-clock-o"></i> 5 mins</small>
-                                </h4>
-                                <p>Why not buy a new awesome theme?</p>
-                            </a>
-                        </li>
-                        <!-- end message -->
-                        <!-- start message -->
-                        <li>
-                            <a href="#">
-                                <div class="avatar float-left">
-                                    <img src="assets/img/dummy/u3.png" alt="">
-                                    <span class="avatar-badge busy"></span>
-                                </div>
-                                <h4>
-                                    Support Team
-                                    <small><i class="icon icon-clock-o"></i> 5 mins</small>
-                                </h4>
-                                <p>Why not buy a new awesome theme?</p>
-                            </a>
-                        </li>
-                        <!-- end message -->
                     </ul>
                 </li>
-                <li class="footer s-12 p-2 text-center"><a href="#">See All Messages</a></li>
+                        <!-- end message -->
             </ul>
         </li>
         <!-- Notifications -->
@@ -524,16 +261,6 @@
                         <li>
                             <a href="#">
                                 <i class="icon icon-data_usage text-success"></i> 5 new members joined today
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon icon-data_usage text-danger"></i> 5 new members joined today
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="icon icon-data_usage text-yellow"></i> 5 new members joined today
                             </a>
                         </li>
                     </ul>
@@ -635,20 +362,6 @@
                         Dashboard
                     </h4>
                 </div>
-            </div>
-            <div class="row">
-                <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
-                    <li>
-                        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
-                            <i class="icon icon-home2"></i>Today</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"><i class="icon icon-plus-circle mb-3"></i>Yesterday</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3"><i class="icon icon-calendar"></i>By Date</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </header>

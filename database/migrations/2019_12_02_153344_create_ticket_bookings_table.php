@@ -18,6 +18,7 @@ class CreateTicketBookingsTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('bus_name');
+            $table->string('chassis_no');
             $table->string('date');
             $table->string('time');
             $table->string('from');
@@ -26,7 +27,7 @@ class CreateTicketBookingsTable extends Migration
             $table->string('total_price');
             $table->string('seat_no');
             $table->integer('total_seat');
-            $table->integer('stoppage');
+            $table->string('stoppage');
             $table->integer('payment_status');
             $table->timestamps();
         });
